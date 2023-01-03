@@ -17,6 +17,7 @@
 const ROCK = "ROCK";
 const PAPER = "PAPER";
 const SCISSORS = "SCISSORS";
+let computerSelection;
 
 function randomNumber() {
     const MAX = 4;
@@ -27,7 +28,6 @@ function randomNumber() {
 }
 
 function getComputerChoice(choice){
-    let computerSelection;
     choice = randomNumber();
     if (choice == 1) {
         computerSelection = ROCK;
@@ -40,3 +40,22 @@ function getComputerChoice(choice){
         return computerSelection;
     }
 }
+console.log(getComputerChoice());
+
+let playerSelection = prompt("Choose: ROCK, PAPER, SCISSORS").toUpperCase();
+console.log(playerSelection);
+
+function playRound(playerSelection, computerSelection) {
+    if (playerSelection == computerSelection) {
+        return "TIE"
+    } else if (playerSelection == ROCK && computerSelection == SCISSORS) {
+        return "PLAYER WINS";
+    } else if (playerSelection == SCISSORS && computerSelection == PAPER) {
+        return "PLAYER WINS";
+    } else if (playerSelection == PAPER && computerSelection == ROCK) {
+        return "PLAYER WINS"
+    } else{
+        return "COMPUTER WINS"
+    }
+}
+console.log(playRound(playerSelection, computerSelection));
