@@ -42,9 +42,6 @@ function getComputerChoice(choice){
     }
 }
 
-// let playerSelection = prompt("Choose: ROCK, PAPER, SCISSORS").toUpperCase();
-// console.log(playerSelection);
-
 function playRound(playerSelection, computerSelection) {
     if (playerSelection == computerSelection) {
         return "TIE"
