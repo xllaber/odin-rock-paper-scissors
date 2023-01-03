@@ -26,6 +26,17 @@ function randomNumber() {
     return choice;
 }
 
-function getComputerChoice(){
-
+function getComputerChoice(choice){
+    let computerSelection;
+    choice = randomNumber();
+    if (choice == 1) {
+        computerSelection = ROCK;
+        return computerSelection;
+    } else if (choice == 2) {
+        computerSelection = PAPER;
+        return computerSelection;
+    } else {
+        computerSelection = SCISSORS;
+        return computerSelection;
+    }
 }
