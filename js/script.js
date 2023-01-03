@@ -18,6 +18,7 @@ const ROCK = "ROCK";
 const PAPER = "PAPER";
 const SCISSORS = "SCISSORS";
 let computerSelection;
+let playerSelection;
 
 function randomNumber() {
     const MAX = 4;
@@ -40,10 +41,9 @@ function getComputerChoice(choice){
         return computerSelection;
     }
 }
-console.log(getComputerChoice());
 
-let playerSelection = prompt("Choose: ROCK, PAPER, SCISSORS").toUpperCase();
-console.log(playerSelection);
+// let playerSelection = prompt("Choose: ROCK, PAPER, SCISSORS").toUpperCase();
+// console.log(playerSelection);
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection == computerSelection) {
@@ -58,4 +58,31 @@ function playRound(playerSelection, computerSelection) {
         return "COMPUTER WINS"
     }
 }
-console.log(playRound(playerSelection, computerSelection));
+
+function game() {
+    let computerWins = 0;
+    let playerWins = 0;
+    let ties = 0;
+    for (let i = 0; i < 5; i++) {
+        getComputerChoice(randomNumber());
+        playerSelection = prompt("Choose: ROCK, PAPER, SCISSORS").toUpperCase();
+        let result = playRound(playerSelection, computerSelection);
+        if (result == "PLAYER WINS") {
+            playerWins++;
+        } else if (result == "COMPUTER WINS") {
+            computerWins++;
+        } else if (result == "TIE") {
+            ties++;
+        }
+        console.log("Player: %d | Computer: %d | Ties: %d", playerWins, computerWins, ties);
+    }
+    if (playerWins > computerWins) {
+        console.log("PLAYER WINS!")
+    } else if (computerWins > playerWins) {
+        console.log("COMPUTER WINS!")
+    } else {
+        console.log("TIE!")
+    }
+}
+
+console.log(game());
